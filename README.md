@@ -14,3 +14,4 @@ Learning challenge: understand object oriented programming by creating a blackja
   * Player class public methods have content.
   * Magical value: tool or polemic? 21 is set as a class constant in any case.
   * Note on order: initialize objects before calling them, require files just once (seems obvious and yet...).
+  * index.php has clickable hit, stand and surrender buttons.

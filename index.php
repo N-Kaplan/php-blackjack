@@ -22,6 +22,23 @@ function whatIsHappening()
 }
 
 $game = new Blackjack();
+$_SESSION["game"] = $game;
+
+
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    if (isset($_POST["hit"])) {
+        echo "hit";
+    }
+    if (isset($_POST["stand"])) {
+        echo "stand";
+    }
+    if (isset($_POST["surrender"])) {
+        echo "surrender";
+    }
+
+}
+
+
 //$deck = new Deck();
 //
 //$deck->shuffle();
@@ -31,3 +48,23 @@ $game = new Blackjack();
 //}
 
 whatIsHappening();
+
+?>
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Blackjack</title>
+</head>
+<body>
+    <form method="post">
+        <input type="submit" class="button" name="hit" value="Hit">
+        <input type="submit" class="button" name="stand" value="Stand">
+        <input type="submit" class="button" name="surrender" value="Surrender">
+    </form>
+</body>
+</html>
