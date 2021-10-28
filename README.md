@@ -3,7 +3,7 @@ Week 6 at [BeCode](https://github.com/becodeorg/ANT-Lamarr-5.34) - October 2021
 
 ***
 
-<h3>[Learning challenge](https://github.com/becodeorg/ANT-Lamarr-5.34/tree/main/2.The-Hill/php/4.oop-blackjackgame): understand object oriented programming by creating a blackjack game.</h3>
+<h3>[Learning challenge:](https://github.com/becodeorg/ANT-Lamarr-5.34/tree/main/2.The-Hill/php/4.oop-blackjackgame) understand object oriented programming by creating a blackjack game.</h3>
 
 ***
 * <h5>Day 1:</h5> 
