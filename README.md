@@ -16,3 +16,4 @@ Week 6 at [BeCode](https://github.com/becodeorg/ANT-Lamarr-5.34) - October 2021
 * Magical value: tool or polemic? 21 is set as a class constant in any case.
 * Note on order: initialize objects before calling them, require files just once (seems obvious and yet...).
 * index.php has clickable hit, stand and surrender buttons, no functionality yet.
+
