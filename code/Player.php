@@ -1,8 +1,6 @@
 <?php
 declare(strict_types=1);
 
-require 'Blackjack.php';
-
 class Player
 {
     private array $cards = [];

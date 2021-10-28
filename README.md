@@ -11,5 +11,6 @@ Learning challenge: understand object oriented programming by creating a blackja
   * The Blackjack's constructor method instantiates a player, a dealer and a deck, and shuffles the deck.
   * The player's constructor method takes a deck as a parameter and draws 2 cards for the player (method from Deck class).
   * !!! Still unclear: which methods should be private?
-  * Player class public methods have content: 
+  * Player class public methods have content.
   * Magical value: tool or polemic? 21 is set as a class constant in any case.
+  * Note on order: initialize objects before calling them, require files just once (seems obvious and yet...).
