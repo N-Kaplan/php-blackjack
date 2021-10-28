@@ -1,6 +1,8 @@
 <?php
 declare(strict_types=1);
 
+require 'Blackjack.php';
+
 class Player
 {
     private array $cards = [];
@@ -11,5 +13,11 @@ class Player
     public function getScore(): int {}
     public function hasLost(): bool {}
 
+    public function __construct(Deck $deck)
+    {
+        //draw 2 cards
+        $this->cards[] = $deck->drawCard();
+        $this->cards[] = $deck->drawCard();
+    }
 }
 
