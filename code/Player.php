@@ -7,11 +7,27 @@ class Player
 {
     private array $cards = [];
     private bool $lost = false;
+    private const BLACKJACK = 21;
 
-    public function hit(): bool {}
-    public function surrender(): bool{}
-    public function getScore(): int {}
-    public function hasLost(): bool {}
+    public function hit(): void {
+        //draw 1 card
+        $this->cards[] = $deck->drawCard();
+        if ($this->getScore($cards) > self::BLACKJACK) {
+            $this->lost = true;
+        }
+    }
+
+    public function surrender($lost): void {
+        $this->lost = true;
+    }
+
+    public function getScore($cards): int {
+        return array_sum(array_column($cards, 'value')); //add up the cards' values
+    }
+
+    public function hasLost(): bool {
+        return $this->lost;
+    }
 
     public function __construct(Deck $deck)
     {
