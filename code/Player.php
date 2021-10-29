@@ -7,12 +7,13 @@ class Player
     private bool $lost = false;
     private const BLACKJACK = 21;
 
-    public function hit(): void {
+    public function hit(Deck $deck): array {
         //draw 1 card
         $this->cards[] = $deck->drawCard();
-        if ($this->getScore($cards) > self::BLACKJACK) {
+        if ($this->getScore($this->cards) > self::BLACKJACK) {
             $this->lost = true;
         }
+        return $this->cards;
     }
 
     public function surrender($lost): void {

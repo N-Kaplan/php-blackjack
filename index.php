@@ -23,11 +23,13 @@ function whatIsHappening()
 
 $game = new Blackjack();
 $_SESSION["game"] = $game;
+$deck = $game->getDeck();
+$player = $game->getPlayer();
 
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     if (isset($_POST["hit"])) {
-        echo "hit";
+        $player->hit($deck);
     }
     if (isset($_POST["stand"])) {
         echo "stand";
