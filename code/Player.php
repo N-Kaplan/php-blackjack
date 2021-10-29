@@ -3,25 +3,29 @@ declare(strict_types=1);
 
 class Player
 {
-    private array $cards = [];
+    protected array $cards = [];
     private bool $lost = false;
     private const BLACKJACK = 21;
 
     public function hit(Deck $deck): array {
         //draw 1 card
         $this->cards[] = $deck->drawCard();
-        if ($this->getScore($this->cards) > self::BLACKJACK) {
-            $this->lost = true;
+        if ($this->getScore() > self::BLACKJACK) {
+            $this->surrender();
         }
         return $this->cards;
     }
 
-    public function surrender($lost): void {
+    public function surrender(): void {
         $this->lost = true;
     }
 
-    public function getScore($cards): int {
-        return array_sum(array_column($cards, 'value')); //add up the cards' values
+    public function getScore(): int {
+        $score = 0;
+        foreach($this->cards as $card) {
+            $score += $card->getValue();
+        }
+        return $score;
     }
 
     public function hasLost(): bool {
