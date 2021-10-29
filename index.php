@@ -8,6 +8,7 @@ require 'code/Card.php';
 require 'code/Deck.php';
 require 'code/Blackjack.php';
 require 'code/Player.php';
+require 'code/Dealer.php';
 
 function whatIsHappening()
 {
@@ -21,24 +22,45 @@ function whatIsHappening()
     var_dump($_SESSION);
 }
 
-$game = new Blackjack();
-$_SESSION["game"] = $game;
+function checkSession(){
+    if(!isset($_SESSION["game"])){
+        $_SESSION["game"] = new Blackjack();
+    }
+    return $_SESSION["game"];
+}
+
+$game = checkSession();
 $deck = $game->getDeck();
 $player = $game->getPlayer();
+$dealer = $game->getDealer();
+
+$message = "";
 
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     if (isset($_POST["hit"])) {
-        $player->hit($deck);
+        if (!$player->hasLost()) {
+            $player->hit($deck);
+        }
     }
     if (isset($_POST["stand"])) {
-        echo "stand";
+        if (!$dealer->hasLost()) {
+            $dealer->hit($deck);
+        }
     }
     if (isset($_POST["surrender"])) {
-        echo "surrender";
-    }
+        $player->surrender();
+        unset($_SESSION["game"]);
 
+        $game = checkSession();
+        $deck = $game->getDeck();
+        $player = $game->getPlayer();
+        $dealer = $game->getDealer();
+
+    }
 }
+
+$score_player = $player->getScore();
 
 
 //$deck = new Deck();

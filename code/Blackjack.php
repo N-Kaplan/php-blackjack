@@ -5,7 +5,7 @@ declare(strict_types=1);
 class Blackjack
 {
     private Player $player;
-    private Player $dealer;
+    private Dealer $dealer;
     private Deck $deck;
 
     public function getPlayer(): Player
@@ -21,7 +21,7 @@ class Blackjack
         $this->dealer = new Dealer($this->deck);
     }
 
-    public function getDealer(): Player
+    public function getDealer(): Dealer
     {
         return $this->dealer;
     }
